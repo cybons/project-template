@@ -1,0 +1,52 @@
+{
+  "name": "total-management",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "sideEffects": false,
+  "scripts": {
+    "build": "webpack --mode production --node-env production",
+    "build2": "webpack --mode production --node-env minimize",
+    "dev": "webpack --mode development",
+    "start": "webpack-cli serve --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@google/clasp": "^2.4.2",
+    "@types/google.script.client-side": "^0.1.1",
+    "@types/node": "^20.5.1",
+    "@types/webpack": "^5.28.1",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "gas-webpack-plugin": "^2.5.0",
+    "mini-css-extract-plugin": "^2.7.6",
+    "node-sass": "^9.0.0",
+    "prettier": "^3.0.2",
+    "sass": "^1.66.1",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-scss": "^10.0.0",
+    "stylelint-prettier": "^4.0.2",
+    "stylelint-scss": "^5.1.0",
+    "ts-loader": "^9.4.4",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.24.8",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-remove-empty-scripts": "^1.0.3"
+  },
+  "dependencies": {
+    "destyle.css": "^4.0.0"
+  }
+}
