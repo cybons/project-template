@@ -13,6 +13,7 @@ const devServer: DevServerConfiguration = {
 };
 const entryPoint = {
   ts: './index.ts',
+  react: './app.tsx',
   style: './scss/style.scss',
 };
 const isProduction = process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'minimize';
@@ -25,6 +26,7 @@ const config: Configuration = {
   context: path.resolve(__dirname, 'src'),
   entry: {
     bundle: entryPoint.ts,
+    app: entryPoint.react,
     style: entryPoint.style,
   },
   // モジュールバンドルを行った結果を出力する場所やファイル名の指定
@@ -37,9 +39,9 @@ const config: Configuration = {
   // import文でファイル拡張子を書かずに名前解決するための設定
   // 例...「import World from './world'」と記述すると"world.ts"という名前のファイルをモジュールとして探す
   resolve: {
-    extensions: ['.ts', '.js'], // Reactの.tsxや.jsxの拡張子も扱いたい場合は配列内に追加する
+    extensions: ['.ts', 'tsx', '.js', 'jsx'], // Reactの.tsxや.jsxの拡張子も扱いたい場合は配列内に追加する
   },
-  // target: 'web',
+  target: 'web',
   devServer,
   // モジュールに適用するルールの設定（ローダーの設定を行う事が多い）
   module: {
@@ -47,7 +49,7 @@ const config: Configuration = {
       {
         // 拡張子が.tsのファイルに対してTypeScriptコンパイラを適用する
         // Reactで用いる.tsxの拡張子にも適用する場合は test:/\.(ts|tsx)$/,
-        test: /\.ts$/,
+        test: /\.(ts|tsx)$/,
         loader: 'ts-loader',
       },
       {
@@ -79,7 +81,7 @@ module.exports = () => {
   if (isProduction && !skipMinimization) {
     config.mode = 'production';
     console.log('production');
-    config.optimization = { minimizer: [new TerserPlugin({ terserOptions: { compress: { drop_console: true } } })] };
+    // config.optimization = { minimizer: [new TerserPlugin({ terserOptions: { compress: { drop_console: true } } })] };
   } else if (isProduction && skipMinimization) {
     config.mode = 'production';
     console.log('production -> skip minimization');
