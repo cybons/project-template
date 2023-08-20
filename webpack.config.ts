@@ -28,7 +28,7 @@ const config: Configuration = {
   entry: {
     bundle: entryPoint.ts,
     app: entryPoint.react,
-    style: entryPoint.style,
+    // style: entryPoint.style,
   },
   // モジュールバンドルを行った結果を出力する場所やファイル名の指定
   output: {
@@ -56,11 +56,23 @@ const config: Configuration = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+              // modules: {
+              //   namedExport: true,
+              // },
+            },
+          },
           {
             loader: 'css-loader',
             options: {
               url: false, // url()を変換しない
+              esModule: true,
+              modules: {
+                namedExport: true,
+              },
               // sourceMap: devMode,
             },
           },
