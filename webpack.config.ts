@@ -39,7 +39,7 @@ const config: Configuration = {
   // import文でファイル拡張子を書かずに名前解決するための設定
   // 例...「import World from './world'」と記述すると"world.ts"という名前のファイルをモジュールとして探す
   resolve: {
-    extensions: ['.ts', 'tsx', '.js', 'jsx'], // Reactの.tsxや.jsxの拡張子も扱いたい場合は配列内に追加する
+    extensions: ['.ts', '.tsx', '.js', '.jsx'], // Reactの.tsxや.jsxの拡張子も扱いたい場合は配列内に追加する
   },
   target: 'web',
   devServer,
