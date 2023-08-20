@@ -10,6 +10,7 @@ const devServer: DevServerConfiguration = {
     directory: path.resolve(__dirname, 'dist'),
   }, // webpack-dev-serverの公開フォルダ
   open: true, // サーバー起動時にブラウザを開く};
+  historyApiFallback: true,
 };
 const entryPoint = {
   ts: './index.ts',
